@@ -270,7 +270,7 @@ class UserListSerializer(BaseModelSerializer):
             "is_admin",
             "is_staff",
             "profile",
-            "is_blocked",
+            # "is_blocked",
             "user_type",
             "mobile_no",
             "roles",

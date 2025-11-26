@@ -5,11 +5,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenRefreshView
 
-from apps.authentication.models.user_profile import UserProfile
-from apps.authentication.models.users import CustomUser
-from apps.authentication.serializers.change_password import ChangePasswordSerializer
-from apps.authentication.serializers.login import LoginSerializer
-from apps.authentication.serializers.logout import LogoutSerializer
 from base.views.generic_views import (
     CustomAPIResponse,
     CustomGenericCreateView,
@@ -19,15 +14,19 @@ from base.views.generic_views import (
 )
 
 from ..filters.user import UserFilters
+from ..models import CustomUser, UserProfile
 from ..permissions.permissions import (
     IsAuthenticated,
 )
-from ..serializers.users import (
+from ..serializers import (
+    ChangePasswordSerializer,
     CustomUserCreateSerializer,
     CustomUserRetrieveSerializer,
     CustomUserUpdateSerializer,
     GetAllProfileUserSerializer,
     GetUserProfileSerializer,
+    LoginSerializer,
+    LogoutSerializer,
     UpdateUserProfileSerializer,
     UserListSerializer,
     UserSignUpSerializer,

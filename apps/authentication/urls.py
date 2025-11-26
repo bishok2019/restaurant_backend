@@ -5,18 +5,18 @@ from apps.authentication.views.forget_password import (
     ChangePasswordWithOtpView,
     ForgetPasswordView,
 )
-from apps.authentication.views.users import (
+
+from .patterns import permission, roles, user_patterns
+from .views.users import (
     CustomUserProfileGetView,
     CustomUserProfileUpdateView,
     GetAllProfileListApiView,
     LoginView,
     LogoutView,
     RefreshTokenView,
-    UserDeleteView,
+    # UserDeleteView,
     UserSignUpAPIView,
 )
-
-from .patterns import permission, roles, user_patterns
 
 users_and_permissions = [
     path("users/", include(user_patterns)),
@@ -28,7 +28,7 @@ urlpatterns = [
     path("logout", LogoutView.as_view(), name="logout"),
     path("refresh-token", RefreshTokenView.as_view(), name="token_refresh"),
     path("", include(users_and_permissions)),
-    path("user-delete/<int:pk>", UserDeleteView.as_view(), name="user_delete"),
+    # path("user-delete/<int:pk>", UserDeleteView.as_view(), name="user_delete"),
     path(
         "update-profile",
         CustomUserProfileUpdateView.as_view(),
@@ -48,7 +48,7 @@ urlpatterns = [
         ChangePasswordWithOtpView.as_view(),
         name="change_password",
     ),
-    path("public-sign-up", UserSignUpAPIView.as_view(), name="public_sign_up"),
+    path("user-sign-up", UserSignUpAPIView.as_view(), name="public_sign_up"),
     path("contact-us/create", ContactUsCreateView.as_view(), name="contact_us_create"),
     path("contact-us/list", ContactUsListView.as_view(), name="contact_us_list"),
 ]

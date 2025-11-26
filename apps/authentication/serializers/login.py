@@ -37,8 +37,8 @@ class LoginSerializer(serializers.Serializer):
         if not user.is_active:
             raise serializers.ValidationError({"username": "User is not active."})
 
-        if user.is_blocked:
-            raise serializers.ValidationError({"username": "Account is blocked."})
+        # if user.is_blocked:
+        #     raise serializers.ValidationError({"username": "Account is blocked."})
 
         data = user.tokens(request)
         return data

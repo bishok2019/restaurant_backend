@@ -1,25 +1,9 @@
-from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.core.exceptions import ValidationError
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.authentication.managers import CustomUserManager
 from base.models import AbstractBaseModel, models
-
-
-def upload_path_user(instance, filename):
-    return "/".join(["user_image", filename])
-
-
-def validate_image(image):
-    file_size = image.size
-    limit_byte_size = settings.MAX_UPLOAD_SIZE
-    if file_size > limit_byte_size:
-        # converting into kb
-        f = limit_byte_size / 1024
-        # converting into MB
-        f = f / 1024
-        raise ValidationError("Max size of file is %s MB" % f)
+from base.validators.photos import upload_path_user, validate_image
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin, AbstractBaseModel):
