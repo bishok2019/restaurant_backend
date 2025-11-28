@@ -1,10 +1,9 @@
+from apps.authentication.filters.user import ContactUsFilter
+from apps.authentication.models.user_profile import ContactUs
 from apps.authentication.serializers.contact_us import (
     ContactUsCreateSerializer,
     ContactUsGetSerializer,
 )
-
-from apps.authentication.filters.user import ContactUsFilter
-from apps.authentication.models.user_profile import ContactUs
 from base.views.generic_views import (
     CustomGenericCreateView,
     CustomGenericListView,
