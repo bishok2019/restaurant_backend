@@ -59,6 +59,7 @@ LOCAL_APPS = [
     "apps.customer",
     "apps.location",
     "apps.api_logs",
+    "apps.core",
 ]
 INSTALLED_APPS = [
     "django.contrib.admin",

@@ -30,8 +30,8 @@ class OrderItem(AbstractBaseModel):
         related_name="order_items",  # allows order.order_items.all()
         help_text="The order this item belongs to",
     )
-    product = models.ForeignKey(
-        "Product",
+    order_item = models.ForeignKey(
+        "MenuItem",
         on_delete=models.PROTECT,
         related_name="order_items",
         help_text="Product being ordered",

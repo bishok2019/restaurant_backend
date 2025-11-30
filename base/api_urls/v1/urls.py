@@ -10,4 +10,5 @@ urlpatterns = [
     path("auth-app/", include("apps.authentication.urls")),
     path("api-logs-app/", include("apps.api_logs.urls")),
     path("location-app/", include("apps.location.urls")),
+    path("core-app/", include("apps.core.urls")),
 ]
