@@ -11,7 +11,7 @@ from rest_framework.response import Response
 
 def decimal_positive_validator(value):
     if value < 0:
-        raise ValidationError(f"Value must be Positive")
+        raise ValidationError("Value must be Positive")
 
 
 def validate_file(image):
@@ -125,7 +125,7 @@ def log_request_response(
         try:
             body.pop("password", "password")
             body.pop("new_password", "new_password")
-        except Exception as e:
+        except Exception:
             pass
 
         device_type = {
@@ -154,7 +154,7 @@ def log_request_response(
 
         try:
             response.render()
-        except Exception as e:
+        except Exception:
             pass
         include_tokens = "login" in str(request.get_full_path()).casefold()
 
@@ -162,7 +162,7 @@ def log_request_response(
         try:
             headers_data.pop("Authorization", None)
             headers_data.pop("authorization", None)
-        except Exception as e:
+        except Exception:
             pass
 
         server_error = json.loads(response.headers.get("server_error", "false").lower())

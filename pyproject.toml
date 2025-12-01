@@ -19,6 +19,7 @@ dependencies = [
     "filetype>=1.2.0",
     "gunicorn>=23.0.0",
     "nepali-datetime>=1.0.8.4",
+    "pandas>=2.3.3",
     "pillow>=11.3.0",
     "psycopg2-binary>=2.9.10",
     "python-decouple==3.8",

@@ -45,7 +45,7 @@ class MenuItem(AbstractBaseModel):
         help_text="Discounted price (if any)",
     )
     photo = models.ImageField(
-        upload_to=upload_path_user,
+        upload_to="menu_item/",
         validators=[validate_image],
         blank=True,
         default="default_images/profile.png",
