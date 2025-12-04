@@ -4,6 +4,8 @@ from ..models import OrderItem, Orders
 
 
 class OrderListSerializer(BaseModelSerializer):
+    served_by = serializers.CharField(source="served_by.user.username", read_only=True)
+
     class Meta:
         model = Orders
         exclude = ExcludeFields.exclude
@@ -16,6 +18,8 @@ class OrderCreateSerializer(BaseModelSerializer):
 
 
 class OrderRetrieveSerializer(BaseModelSerializer):
+    served_by = serializers.CharField(source="served_by.user.username", read_only=True)
+
     class Meta:
         model = Orders
         exclude = ExcludeFields.exclude
@@ -28,6 +32,9 @@ class OrderUpdateSerializer(BaseModelSerializer):
 
 
 class OrderItemListSerializer(BaseModelSerializer):
+    order_item = serializers.CharField(source="order_item.name")
+    order = serializers.CharField(source="order.table_number")
+
     class Meta:
         model = OrderItem
         exclude = ExcludeFields.exclude
@@ -40,6 +47,9 @@ class OrderItemCreateSerializer(BaseModelSerializer):
 
 
 class OrderItemRetrieveSerializer(BaseModelSerializer):
+    order_item = serializers.CharField(source="order_items.name")
+    order = serializers.CharField(source="order.table_number")
+
     class Meta:
         model = OrderItem
         exclude = ExcludeFields.exclude

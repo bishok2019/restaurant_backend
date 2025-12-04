@@ -16,8 +16,8 @@ from .kitchen import (
 )
 from .menu import (
     MenuCreateSerializer,
-    MenuItemMenuCreateSerializer,
-    MenuItemMenuListSerializer,
+    MenuItemCreateSerializer,
+    MenuItemListSerializer,
     MenuItemRetrieveSerializer,
     MenuItemUpdateSerializer,
     MenuListSerializer,
@@ -52,8 +52,8 @@ __all__ = [
     "KitchenListSerializer",
     "KitchenRetrieveSerializer",
     "KitchenUpdateSerializer",
-    "MenuItemMenuCreateSerializer",
-    "MenuItemMenuListSerializer",
+    "MenuItemCreateSerializer",
+    "MenuItemListSerializer",
     "MenuItemRetrieveSerializer",
     "MenuItemUpdateSerializer",
     "OrderCreateSerializer",

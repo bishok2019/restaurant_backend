@@ -22,26 +22,26 @@ from ..serializers import (
 
 class OrdersItemCreateApiView(CustomGenericCreateView):
     serializer_class = OrderItemCreateSerializer
-    settings = "Orders Item Created Successfully."
-    success_response_message = OrderItem.objects.all()
+    queryset = OrderItem.objects.all()
+    success_response_message = "Order Item created Successfully."
 
 
 class OrdersItemListApiView(CustomGenericListView):
     serializer_class = OrderItemListSerializer
     queryset = OrderItem.objects.all()
-    success_response_message = "OrderCreated Successfully."
+    success_response_message = "Order Item fetched Successfully."
 
 
 class OrdersItemRetrieveApiView(CustomGenericRetrieveView):
     serializer_class = OrderItemRetrieveSerializer
     queryset = OrderItem.objects.all()
-    success_response_message = "OrderCreated Successfully."
+    success_response_message = "Order Item retrieved Successfully."
 
 
 class OrdersItemUpdateApiView(CustomGenericUpdateView):
     serializer_class = OrderItemUpdateSerializer
     queryset = OrderItem.objects.all()
-    success_response_message = "OrderCreated Successfully."
+    success_response_message = "Order Item updated Successfully."
 
 
 # Order

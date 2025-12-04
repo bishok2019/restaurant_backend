@@ -43,9 +43,6 @@ class OrderItem(AbstractBaseModel):
         validators=[MinValueValidator(1)],
         help_text="Number of items ordered",
     )
-    unit_price = models.DecimalField(
-        max_digits=10, decimal_places=2, help_text="Price per unit at time of order"
-    )
 
     dietary_type = models.CharField(
         max_length=20,
@@ -80,9 +77,11 @@ class OrderItem(AbstractBaseModel):
 class Orders(AbstractBaseModel):
     customer = models.ForeignKey(
         "customer.Customer",
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name="orders",
         help_text="Customer who placed the order",
+        null=True,
+        blank=True,
     )
     order_number = models.CharField(
         max_length=50, unique=True, help_text="Unique order number"
@@ -155,9 +154,6 @@ class Orders(AbstractBaseModel):
         default=0.00,
         help_text="Delivery charge (if applicable)",
     )
-    total_amount = models.DecimalField(
-        max_digits=10, decimal_places=2, default=0.00, help_text="Final total amount"
-    )
 
     # Staff Assignment
     served_by = models.ForeignKey(
@@ -170,9 +166,6 @@ class Orders(AbstractBaseModel):
     )
 
     # Timestamps
-    ordered_at = models.DateTimeField(
-        auto_now_add=True, help_text="When the order was placed"
-    )
     confirmed_at = models.DateTimeField(
         null=True, blank=True, help_text="When the order was confirmed"
     )

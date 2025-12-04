@@ -23,13 +23,13 @@ class EmployeeListApiView(CustomGenericListView):
 class EmployeeCreateApiView(CustomGenericCreateView):
     serializer_class = EmployeeCreateSerializer
     queryset = Employee.objects.all()
-    success_response_message = "Employee Fetched Successfully"
+    success_response_message = "Employee Created Successfully"
 
 
 class EmployeeRetrieveApiView(CustomGenericRetrieveView):
     serializer_class = EmployeeRetrieveSerializer
     queryset = Employee.objects.all()
-    success_response_message = "Employee Fetched Successfully"
+    success_response_message = "Employee Retrieved Successfully"
 
 
 class EmployeeUpdateApiView(CustomGenericUpdateView):

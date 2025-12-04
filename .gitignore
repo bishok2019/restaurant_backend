@@ -154,7 +154,6 @@ upload.py
 
 .DS_Store
 
-*.csv
 /media/*.mp4
 
 

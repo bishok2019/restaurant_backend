@@ -6,46 +6,52 @@ from ..models import Menu, MenuItem
 class MenuListSerializer(BaseModelSerializer):
     class Meta:
         model = Menu
-        fields = ExcludeFields.exclude
+        exclude = ExcludeFields.exclude
 
 
 class MenuCreateSerializer(BaseModelSerializer):
     class Meta:
         model = Menu
-        fields = ExcludeFields.exclude
+        exclude = ExcludeFields.exclude
 
 
 class MenuRetrieveSerializer(BaseModelSerializer):
     class Meta:
         model = Menu
-        fields = ExcludeFields.exclude
+        exclude = ExcludeFields.exclude
 
 
 class MenuUpdateSerializer(BaseModelSerializer):
     class Meta:
         model = Menu
-        fields = ExcludeFields.exclude
+        exclude = ExcludeFields.exclude
 
 
-class MenuItemMenuListSerializer(BaseModelSerializer):
+class MenuItemListSerializer(BaseModelSerializer):
+    category = serializers.CharField(source="category.name", read_only=True)
+    kitchen = serializers.CharField(source="kitchen.name", read_only=True)
+
     class Meta:
         model = MenuItem
-        fields = ExcludeFields.exclude
+        exclude = ExcludeFields.exclude
 
 
-class MenuItemMenuCreateSerializer(BaseModelSerializer):
+class MenuItemCreateSerializer(BaseModelSerializer):
     class Meta:
         model = MenuItem
-        fields = ExcludeFields.exclude
+        exclude = ExcludeFields.exclude
 
 
 class MenuItemRetrieveSerializer(BaseModelSerializer):
+    category = serializers.CharField(source="category.name")
+    kitchen = serializers.CharField(source="kitchen.name")
+
     class Meta:
         model = MenuItem
-        fields = ExcludeFields.exclude
+        exclude = ExcludeFields.exclude
 
 
 class MenuItemUpdateSerializer(BaseModelSerializer):
     class Meta:
         model = MenuItem
-        fields = ExcludeFields.exclude
+        exclude = ExcludeFields.exclude

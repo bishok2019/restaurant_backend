@@ -14,6 +14,7 @@ from ..serializers import (
     KitchenCreateSerializer,
     KitchenListSerializer,
     KitchenRetrieveSerializer,
+    KitchenUpdateSerializer,
 )
 
 
@@ -23,22 +24,22 @@ class KitchenCategoryListApiView(CustomGenericListView):
     success_response_message = "Kitchen Fetched Successfully"
 
 
-class KitchenCategoryCreateApiView(CustomGenericListView):
+class KitchenCategoryCreateApiView(CustomGenericCreateView):
     serializer_class = Kitchen_CategoryCreateSerializer
     queryset = Kitchen_Category.objects.all()
-    success_response_message = "Kitchen Fetched Successfully"
+    success_response_message = "Kitchen Created Successfully"
 
 
-class KitchenCategoryRetrieveApiView(CustomGenericListView):
-    serializer_class = Kitchen_CategoryListSerializer
+class KitchenCategoryRetrieveApiView(CustomGenericRetrieveView):
+    serializer_class = Kitchen_CategoryRetrieveSerializer
     queryset = Kitchen_Category.objects.all()
-    success_response_message = "Kitchen Fetched Successfully"
+    success_response_message = "Kitchen Retrieved Successfully"
 
 
-class KitchenCategoryUpdateApiView(CustomGenericListView):
+class KitchenCategoryUpdateApiView(CustomGenericUpdateView):
     serializer_class = Kitchen_CategoryUpdateSerializer
     queryset = Kitchen_Category.objects.all()
-    success_response_message = "Kitchen Fetched Successfully"
+    success_response_message = "Kitchen Updated Successfully"
 
 
 class KitchenListApiView(CustomGenericListView):
@@ -47,19 +48,19 @@ class KitchenListApiView(CustomGenericListView):
     success_response_message = "Kitchen Fetched Successfully"
 
 
-class KitchenCreateApiView(CustomGenericListView):
-    serializer_class = KitchenListSerializer
+class KitchenCreateApiView(CustomGenericCreateView):
+    serializer_class = KitchenCreateSerializer
     queryset = Kitchen.objects.all()
-    success_response_message = "Kitchen Fetched Successfully"
+    success_response_message = "Kitchen Created Successfully"
 
 
-class KitchenRetrieveApiView(CustomGenericListView):
-    serializer_class = KitchenListSerializer
+class KitchenRetrieveApiView(CustomGenericRetrieveView):
+    serializer_class = KitchenRetrieveSerializer
     queryset = Kitchen.objects.all()
-    success_response_message = "Kitchen Fetched Successfully"
+    success_response_message = "Kitchen Retrieved Successfully"
 
 
-class KitchenUpdateApiView(CustomGenericListView):
-    serializer_class = KitchenListSerializer
+class KitchenUpdateApiView(CustomGenericUpdateView):
+    serializer_class = KitchenUpdateSerializer
     queryset = Kitchen.objects.all()
-    success_response_message = "Kitchen Fetched Successfully"
+    success_response_message = "Kitchen Updated Successfully"

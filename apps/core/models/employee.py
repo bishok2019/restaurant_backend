@@ -23,3 +23,11 @@ class Employee(AbstractBaseModel):
         blank=True,
         help_text="Monthly salary",
     )
+    kitchen_assigned = models.ForeignKey(
+        "Kitchen",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="kitchen_employees",
+        help_text="Kitchen to which the employee is assigned",
+    )

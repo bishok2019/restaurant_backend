@@ -18,13 +18,7 @@ class Kitchen_Category(AbstractBaseModel):
 
 
 class Kitchen(AbstractBaseModel):
-    kitchen_staff = models.ForeignKey(
-        "Employee",
-        on_delete=models.CASCADE,
-        related_name="assigned_kitchen",
-        help_text="Employee on this kitchen",
-    )
-    kitchen_category = models.ForeignKey(
+    category = models.ForeignKey(
         "Kitchen_Category",
         on_delete=models.PROTECT,
         related_name="kitchen_type",

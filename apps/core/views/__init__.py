@@ -14,6 +14,16 @@ from .kitchen import (
     KitchenRetrieveApiView,
     KitchenUpdateApiView,
 )
+from .menu import (
+    MenuCreateApiView,
+    MenuItemCreateApiView,
+    MenuItemListApiView,
+    MenuItemRetrieveApiView,
+    MenuItemUpdateApiView,
+    MenuListApiView,
+    MenuRetrieveApiView,
+    MenuUpdateApiView,
+)
 from .orders import (
     OrdersCreateApiView,
     OrdersItemCreateApiView,
@@ -46,4 +56,12 @@ __all__ = [
     "OrdersListApiView",
     "OrdersRetrieveApiView",
     "OrdersUpdateApiView",
+    "MenuCreateApiView",
+    "MenuListApiView",
+    "MenuRetrieveApiView",
+    "MenuUpdateApiView",
+    "MenuItemListApiView",
+    "MenuItemCreateApiView",
+    "MenuItemRetrieveApiView",
+    "MenuItemUpdateApiView",
 ]
